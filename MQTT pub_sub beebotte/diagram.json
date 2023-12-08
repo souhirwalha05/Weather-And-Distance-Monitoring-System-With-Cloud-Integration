@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Kamel ECHAIEB",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 33.5,
+      "left": -72.2,
+      "attrs": { "fastTLS": "1" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": 44.8,
+      "left": 72.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -51.6,
+      "left": -188.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -104.1,
+      "left": 149.5,
+      "attrs": { "distance": "187" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd2:SCL", "esp:D22", "gold", [ "h-19.2", "v-37.8" ] ],
+    [ "lcd2:SDA", "esp:D21", "limegreen", [ "h-19.2", "v0.2" ] ],
+    [ "lcd2:VCC", "esp:3V3", "red", [ "h-28.8", "v96.1" ] ],
+    [ "lcd2:GND", "esp:GND.1", "black", [ "h-38.4", "v105.6" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v0" ] ],
+    [ "led1:A", "esp:D32", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D35", "blue", [ "v28.8", "h-327.2", "v67.2" ] ],
+    [ "ultrasonic1:VCC", "esp:VIN", "red", [ "v9.6", "h-316.8", "v192" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v38.4", "h-385.2", "v9.6" ] ],
+    [ "ultrasonic1:TRIG", "esp:D14", "magenta", [ "v19.2", "h-346", "v134.4" ] ]
+  ],
+  "dependencies": {}
+}
